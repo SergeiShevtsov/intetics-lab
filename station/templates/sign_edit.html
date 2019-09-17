@@ -1,0 +1,27 @@
+{% load static %}
+
+<html>
+    <head>
+            <title>Service Station</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link rel="stylesheet" href="{% static 'css/station.css' %}">
+            <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        
+        {% block content %}
+
+            <h1><i>Sign In</i></h1>
+            <form method="POST" class="client-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save bth btn-default">Save</button>
+            </form>
+             
+        {% endblock %} 
+        <div>
+        
+        </div>
+    </body>
+</html>

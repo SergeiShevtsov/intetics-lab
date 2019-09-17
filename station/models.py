@@ -24,10 +24,21 @@ class Car(models.Model):
 class Order(models.Model):
     date = models.DateField()
     order_Amount = models.IntegerField()
-    order_Status = models.IntegerField(unique=True)
+
+    ORDER_CHOICES = (
+        ('Completed', 'Completed'),
+        ('In_Progress', 'In Progress'),
+        ('Cancelled', 'Cancelled'),
+    )
+    order_status = models.CharField(max_length=20,choices=ORDER_CHOICES, default='Completed')
+
     car = models.ForeignKey('Car', on_delete=models.PROTECT)
     # car- name of the field
     # Car- name of the class to link
+
+class Sign(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
 
 
 
