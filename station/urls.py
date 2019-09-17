@@ -2,5 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns= [
-    path('', views.main_page, name='Main_page'),
+    path('station/client_card/', views.new_client, name='new_client'),
+
+
 ]
