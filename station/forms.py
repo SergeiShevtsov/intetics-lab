@@ -17,10 +17,10 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('date', 'order_Amount', 'order_status',)
+        fields = ('date', 'order_Amount', 'order_status','car')
 
 class CarForm(forms.ModelForm):
 
     class Meta:
         model = Car
-        fields = ('make', 'model', 'year', 'vin',)
+        fields = ('make', 'model', 'year', 'vin', 'client')

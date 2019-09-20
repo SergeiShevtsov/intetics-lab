@@ -1,0 +1,11 @@
+<!-- There shoulb be a list of clients from database-->
+
+{% for i in client %}
+<table>
+                    <tr class='success'>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.first_name }}</td>
+                        <td>{{ i.last_name }}</td>
+                    </tr>
+</table>
+{% endfor %}

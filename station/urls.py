@@ -7,5 +7,7 @@ urlpatterns= [
     path('station/Signing_in/', views.sign_in, name='sign_in'),
     path('station/Order/', views.make_order, name='make_order'),
     path('station/Car/', views.car, name='car'),
+  
+    path('Home/clients/', views.clients, name='clients'),
 
 ]
