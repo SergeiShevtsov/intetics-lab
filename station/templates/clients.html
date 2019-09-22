@@ -1,4 +1,5 @@
 <!-- There shoulb be a list of clients from database-->
+{% load static %}
 
 {% for i in client %}
 <table>
@@ -9,3 +10,9 @@
                     </tr>
 </table>
 {% endfor %}
+
+<p><a href="http://127.0.0.1:8000/station/client_card/">Add client card</a></p>
+<p><a href="http://127.0.0.1:8000/station/Car/">Add car</a></p>
+
+
+<!--Надо добавить кнопку для создания нового клиента-->

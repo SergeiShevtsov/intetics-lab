@@ -1,0 +1,17 @@
+{% load static %}
+
+{% for i in cars %}
+<table>
+                    <tr class='success'>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.make }}</td>
+                        <td>{{ i.model }}</td>
+                        <td>{{ i.client }}</td>
+                    </tr>
+</table>
+{% endfor %}
+
+<p><a href="http://127.0.0.1:8000/station/Car/">Add car</a></p>
+<p><a href="http://127.0.0.1:8000/station/Order/">Make an order</a></p>
+
+<!--Надо добавить кнопку для создания новой машины-->

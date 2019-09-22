@@ -1,0 +1,12 @@
+
+
+{% for i in user %}
+<table>
+                    <tr class='success'>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.first_name }}</td>
+                        <td>{{ i.last_name }}</td>
+                        <td>{{ i.secret_word }}</td>
+                    </tr>
+</table>
+{% endfor %}

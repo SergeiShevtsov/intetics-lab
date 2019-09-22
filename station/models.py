@@ -47,9 +47,14 @@ class Order(models.Model):
     # car- name of the field
     # Car- name of the class to link
 
-class Sign(models.Model):
+class User(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    secret_word = models.CharField(max_length=20, unique=True, default="")
+    def __str__(self):
+        return "{} {}, secret word: {}".format(
+            self.first_name, self.last_name, self.secret_word
+        )
 
 
 

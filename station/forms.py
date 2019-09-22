@@ -1,5 +1,5 @@
 from django import forms
-from .models import Client, Car, Order, Sign
+from .models import Client, Car, Order, User
 
 class ClientForm(forms.ModelForm):
 
@@ -7,11 +7,11 @@ class ClientForm(forms.ModelForm):
         model = Client
         fields = ('first_name', 'last_name', 'date_of_birth', 'address', 'phone', 'email',)
 
-class SignForm(forms.ModelForm):
+class UserFForm(forms.ModelForm):
 
     class Meta:
-        model = Sign
-        fields = ('first_name', 'last_name',)
+        model = User
+        fields = ('first_name', 'last_name', 'secret_word',)
     
 class OrderForm(forms.ModelForm):
 

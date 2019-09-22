@@ -1,0 +1,18 @@
+{% load static %}
+
+{% for i in orders %}
+<table>
+                    <tr class='success'>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.order_Amount }}</td>
+                        <td>{{ i.date }}</td>
+                        <td>{{ i.car }}</td>
+                    </tr>
+</table>
+{% endfor %}
+
+<p><a href="http://127.0.0.1:8000/station/Order/">Add an order</a></p>
+<p><a href="http://127.0.0.1:8000/Home/">Home</a></p>
+
+
+<!--Надо добавить кнопку для создания нового заказа-->

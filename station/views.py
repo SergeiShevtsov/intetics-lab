@@ -1,8 +1,22 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Client, Car, Order, Sign
-from .forms import ClientForm, SignForm, OrderForm, CarForm
+from django.shortcuts import render, redirect
+from .models import Client, Car, Order, User
+from .forms import ClientForm, UserFForm, OrderForm, CarForm
+from django.http import HttpResponseRedirect
 
+def UserF(request):
+    if request.method == "POST":
+        form = UserFForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.save()
+            return  HttpResponseRedirect('/station/users/')
+    else:
+        form = UserFForm()
+    return render(request, 'sign_edit.html', {'form': form} )
 
+def userss(request):
+    user = User.objects.all()
+    return render(request, 'users.html', locals())
 
 
 def new_client(request):
@@ -11,35 +25,24 @@ def new_client(request):
         if form.is_valid():
             client = form.save()
             client.save()
-            return redirect('client_detail', pk=new_client.pk)
+            return redirect('clients')
     else:
         form = ClientForm()
     return render(request, 'station_edit.html', {'form': form})
 
-def sign_in(request):
-    if request.method == "POST":
-        form = SignForm(request.POST)
-        if form.is_valid():
-            return redirect('client_detail', pk=new_client.pk)
-    else:
-        form = SignForm()
-    return render(request, 'sign_edit.html', {'form': form} )
-
-def client_detail(request, pk):
-    # return render(request, 'client_detail', pk=client.pk)
-    client = get_object_or_404(Post, pk=pk)
-    return render(request, 'station/client_detail.html', {'client': client})
 
 def make_order(request):
     if request.method == "POST":
         form = OrderForm(request.POST)
         if form.is_valid():
-            Order = form.save()
-            Order.save()
-            return redirect('order_detail', pk=order.pk)
+            order = form.save()
+            order.save()
+            return redirect('orders')
+            
     else:
         form = OrderForm()
     return render(request, 'order.html', {'form': form})
+
 
 def car(request):
     if request.method == "POST":
@@ -47,10 +50,11 @@ def car(request):
         if form.is_valid():
             car = form.save()
             car.save()
-            return redirect('car_detail', pk=car.pk)
+            return redirect('cars')
     else:
         form = CarForm()
     return render(request, 'car.html', {'form': form})
+
 
 def Home(request):
     return render(request, 'Home.html')
@@ -58,6 +62,14 @@ def Home(request):
 def clients(request):
     client = Client.objects.all()
     return render(request, 'clients.html', locals())
+
+def orders(request):
+    orders = Order.objects.all()
+    return render(request, 'orders.html', locals())
+
+def cars(request):
+    cars = Car.objects.all()
+    return render(request, 'cars.html', locals())
 
 
 

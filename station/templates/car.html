@@ -13,7 +13,7 @@
         {% block content %}
 
             <h1><i>Add Car</i></h1>
-            <form method="POST" class="client-form">
+            <form method="POST" class="car-form">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="save bth btn-default">Save</button>
